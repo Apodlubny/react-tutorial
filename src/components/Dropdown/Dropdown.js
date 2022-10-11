@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './Dropdown.css';
+import React, { Component } from "react";
+import "./Dropdown.css";
 
 class Dropdown extends Component {
   state = { visible: false };
@@ -16,7 +16,7 @@ class Dropdown extends Component {
           className="Dropdown__toggle"
           onClick={this.toggle}
         >
-          {this.state.visible ? 'Скрыть' : 'Показать'}
+          {this.state.visible ? "Скрыть" : "Показать"}
         </button>
         {this.state.visible && (
           <div className="Dropdown__menu">Выпадающее меню</div>
