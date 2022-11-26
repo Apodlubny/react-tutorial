@@ -1,3 +1,5 @@
+import { LoginForm } from './FormExample/LoginForm';
+import { ProductReviewForm } from './FormExample/ProductReviewForm';
 import Form from './Forms';
 
 export const App = () => {
@@ -7,6 +9,9 @@ export const App = () => {
   return (
     <div>
       <Form onSubmit={formSubmitHandler} />
+      <LoginForm />
+      <br />
+      <ProductReviewForm />
     </div>
   );
 };
