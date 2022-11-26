@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
-import Counter from './Counter';
+import Counter from "./Counter";
 
 export const App = () => {
-  return <Counter initialValue={10} />;
+  return <Counter initialValue={0} />;
 };
