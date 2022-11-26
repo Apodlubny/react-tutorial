@@ -33,7 +33,7 @@ export const Recipe = ({ recipe: { name, time, servings, calories } }) => {
 
 Recipe.propTypes = {
   recipe: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     time: PropTypes.string.isRequired,
     servings: PropTypes.number.isRequired,
     calories: PropTypes.number.isRequired,
