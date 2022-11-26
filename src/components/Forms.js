@@ -13,12 +13,27 @@ class Form extends Component {
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
+    //   паттерн для форм когда в обьект ставится [] и его значение становится ключом обьекта(вычисляемые свойтва обекта)
     this.setState({ [name]: value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
+  handleLicenseChange = e => {
+    console.log(e.currentTarget.checked);
+
+    this.setState({ license: e.currentTarget.checked });
+  };
+
+  reset = () => {
+    this.setState({ name: '', tag: '' });
   };
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor={this.nameInputId}>
           Имя
           <input
@@ -37,6 +52,49 @@ class Form extends Component {
             onChange={this.handleChange}
           ></input>
         </label>
+        <p>Уровень экспертности</p>
+        <label>
+          {' '}
+          Junior
+          <input
+            type="radio"
+            name="experience"
+            value="junior"
+            onChange={this.handleChange}
+            checked={this.state.experience === 'junior'}
+          ></input>
+        </label>
+        <label>
+          Middle
+          <input
+            type="radio"
+            name="experience"
+            value="middle"
+            onChange={this.handleChange}
+            checked={this.state.experience === 'middle'}
+          ></input>
+        </label>
+        <label>
+          Senior
+          <input
+            type="radio"
+            name="experience"
+            value="senior"
+            onChange={this.handleChange}
+            checked={this.state.experience === 'senior'}
+          ></input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="license"
+            checked={this.state.license}
+            onChange={this.handleLicenseChange}
+          />
+          Согласен с условием
+        </label>
+
+        <button type="submit">Отправить</button>
       </form>
     );
   }
